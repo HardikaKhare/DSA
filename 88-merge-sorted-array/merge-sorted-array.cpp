@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int>ans;
+        int p=nums1.size();
+        int r=p-m;
+        for(int i=0;i<m;i++){
+            ans.push_back(nums1[i]);
+        }
+        for(int i=0;i<n;i++){
+            ans.push_back(nums2[i]);
+        }
+        sort(ans.begin(),ans.end());
+       
+        for(int i=0;i<m+n;i++){
+            nums1[i]=ans[i];
+        }
+    }
+};
