@@ -11,7 +11,6 @@ public:
             ans.push_back(nums2[i]);
         }
         sort(ans.begin(),ans.end());
-       
         for(int i=0;i<m+n;i++){
             nums1[i]=ans[i];
         }
