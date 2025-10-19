@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool bloom(vector<int>b,int m,int k,int day){
+    bool bloom(vector<int>&b,int m,int k,int day){
         int no=0;
         int count=0;
         for(int i=0;i<b.size();i++){
@@ -18,19 +18,21 @@ public:
     }
     int minDays(vector<int>& b, int m, int k) {
         int n=b.size();
+        long long l=(long long)m*k;
+        if(n < l) return -1;
+
         int low= *min_element(b.begin(),b.end());;
         int high= *max_element(b.begin(),b.end());
-        int ans=-1;
+        
         while(low<=high){
             int mid=low+(high-low)/2;
             int a=bloom(b,m,k,mid);
             if(a==true){
-                ans=mid;
                 high=mid-1;
             }else{
                 low=mid+1;
             }
         }
-        return ans;
+        return low;
     }
 };
