@@ -2,8 +2,8 @@ class Solution {
 public:
     long long rate(vector<int>&piles,int speed){
         long long time=0;
-        for(int j=0;j<(int)piles.size();j++){
-                time += (piles[j] + (long long)speed-1) / speed;
+        for(int j=0;j<piles.size();j++){
+                time += (piles[j] + speed-1) / speed;
         }
         return time;
     }
