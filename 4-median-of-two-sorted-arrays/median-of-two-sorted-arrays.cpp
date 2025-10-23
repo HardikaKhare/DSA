@@ -3,7 +3,6 @@ public:
     vector<int>merge(vector<int>&nums1, vector<int>& nums2){
         int n=nums1.size();
         int m=nums2.size();
-        int p=min(n,m);
         vector<int>merged;
         int left=0,right=0;
         while(left<n &&right<m){
