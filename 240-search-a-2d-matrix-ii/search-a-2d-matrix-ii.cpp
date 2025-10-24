@@ -3,14 +3,14 @@ public:
     bool searchMatrix(vector<vector<int>>& arr, int target) {
         int n = arr.size();
         int m = arr[0].size();
-        int row = 0,col=m-1;
-        while (row<n && col>=0) {
+        int row = n-1,col=0;
+        while (row>=0 && col<m) {
             if (arr[row][col] == target)
                 return true;
             else if (arr[row][col] < target)
-                row++;
+                col++;
             else
-                col--;
+                row--;
         }
         return false;
     }
