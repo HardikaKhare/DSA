@@ -12,7 +12,6 @@ public:
                     count++;
                 
             }else{
-                
                 count--;
                 if(count>0){
                 ans+=s[i];
