@@ -4,6 +4,7 @@ public:
         int n=s.size();
          if (n != goal.size()) return false;
         string doubledS = s + s;
-        return doubledS.find(goal) != string::npos;
+        if( doubledS.find(goal) != string::npos) return true;
+        else return false;
     }
 };
