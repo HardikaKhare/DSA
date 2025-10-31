@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int exp(string s,int i,int j,int n){
+    int exp(const string&s,int i,int j,int n){
          while(i>=0 && j<n&&s[i]==s[j]){
             i--;j++;
         }
