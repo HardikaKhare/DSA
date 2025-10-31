@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int exp(const string&s,int i,int j,int n){
+    int exp(const string&s,int i,int j){
+        int n=s.size();
          while(i>=0 && j<n&&s[i]==s[j]){
             i--;j++;
         }
@@ -11,8 +12,8 @@ public:
         string ans;
         int maxLen=1,start=0;
         for(int mid=0;mid<n;mid++){
-        int odd=exp(s,mid,mid,n);
-        int even=exp(s,mid,mid+1,n);
+        int odd=exp(s,mid,mid);
+        int even=exp(s,mid,mid+1);
         int len=max(odd,even);
         if (len > maxLen) {
                 maxLen = len;
