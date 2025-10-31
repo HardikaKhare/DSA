@@ -9,7 +9,6 @@ public:
     }
     string longestPalindrome(string s) {
         int n=s.size();
-        string ans;
         int maxLen=1,start=0;
         for(int mid=0;mid<n;mid++){
         int odd=exp(s,mid,mid);
