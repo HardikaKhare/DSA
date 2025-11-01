@@ -18,11 +18,8 @@ int atmost(vector<int>& s,int k){
         }
         return res;
     }
-    int countSubstr(vector<int>& s, int k) {
+    int subarraysWithKDistinct(vector<int>& s, int k) {
         int ans= atmost(s, k) - atmost(s, k-1);
         return ans;
-    }
-    int subarraysWithKDistinct(vector<int>& s, int k) {
-        return countSubstr(s,k);
     }
 };
