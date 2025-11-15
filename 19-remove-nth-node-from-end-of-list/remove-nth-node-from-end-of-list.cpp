@@ -18,11 +18,9 @@ public:
             cnt++;
             temp=temp->next;
         }
-        
          if (n == cnt) {
-            ListNode* del = head;
-            head = head->next;
-            delete del;
+            ListNode* newh =head->next;
+            return newh;
         }
         temp=head;
         int k=cnt-n;
