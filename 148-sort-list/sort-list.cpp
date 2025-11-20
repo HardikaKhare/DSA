@@ -12,8 +12,6 @@ class Solution {
 public:
     ListNode* sortList(ListNode* head) {
         if(!head || !head->next) return head;
-
-        // Step 1: Split the list in the middle
         ListNode* slow = head;
         ListNode* fast = head->next;
         while(fast && fast->next) {
