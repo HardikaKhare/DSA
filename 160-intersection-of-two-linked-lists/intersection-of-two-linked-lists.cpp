@@ -25,14 +25,14 @@ public:
         b=headB;
         a=headA;
         int d=0;
-        if(n2>n1) d=n2-n1;
-        else d=n1-n2;
         if(n2>n1){
+             d=n2-n1;
         while(d!=0){
             b=b->next;
             d--;
         }
         }else{
+             d=n1-n2;
             while(d!=0){
             a=a->next;
             d--;
