@@ -12,15 +12,38 @@ public:
         if (!headA || !headB) return nullptr;
         ListNode * a=headA;
         ListNode * b=headB;
-        map<ListNode*,int> mpp;
+        int n1=0;
+        int  n2=0;
         while(a!=NULL){
-            mpp[a]=1;
+            n1++;
             a=a->next;
         }
         while(b!=NULL){
-            if(mpp.find(b)!=mpp.end()) return b;
+            n2++;
             b=b->next;
         }
- return nullptr;
+        b=headB;
+        a=headA;
+        int d=0;
+        if(n2>n1) d=n2-n1;
+        else d=n1-n2;
+        if(n2>n1){
+        while(d!=0){
+            b=b->next;
+            d--;
+        }
+        }else{
+            while(d!=0){
+            a=a->next;
+            d--;
+        }
+
+        }
+        while(a!=b){
+            a=a->next;
+            b=b->next;
+        }
+        if(a==b)return a;
+ else return nullptr;
     }
 };
