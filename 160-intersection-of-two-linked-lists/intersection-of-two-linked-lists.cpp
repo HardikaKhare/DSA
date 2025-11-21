@@ -12,19 +12,15 @@ public:
         if (!headA || !headB) return nullptr;
         ListNode * a=headA;
         ListNode * b=headB;
-        while(a!=b){
-            if(a==NULL){
-                a=headB;
-            }else{
+        map<ListNode*,int> mpp;
+        while(a!=NULL){
+            mpp[a]=1;
             a=a->next;
-            }
-             if(b==NULL){
-                 b=headA;}
-                 else{
-            b=b->next;
-             }
         }
-        if( a==b) return a;
-        else return nullptr;
+        while(b!=NULL){
+            if(mpp.find(b)!=mpp.end()) return b;
+            b=b->next;
+        }
+ return nullptr;
     }
 };
