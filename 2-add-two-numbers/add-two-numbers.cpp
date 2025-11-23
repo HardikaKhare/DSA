@@ -17,21 +17,18 @@ public:
         ListNode*dummy=new ListNode(-1);
         ListNode* temp=dummy;
         while(t1!=0 || t2!=0){
-            int sum=0;
-            if(t1==NULL){
-                sum=carry+t2->val;
-            }else if(t2==NULL){
-                sum=carry+t1->val;
-            }else{
-            sum=carry+t1->val+t2->val;
+            int sum=carry;
+            if(t1!=NULL){
+                sum+=t1->val;
+            }
+            if(t2!=NULL){
+                sum+=t2->val;
             }
             if(sum<10){
-                ListNode* newh= new ListNode(sum);
-                temp->next=newh;
+                temp->next= new ListNode(sum);
                 carry=0;
             }else{
-                ListNode* newh=new ListNode(sum-10);
-                temp->next=newh;
+                temp->next=new ListNode(sum-10);
                 carry=1;
             }
             if(t1 !=NULL)
