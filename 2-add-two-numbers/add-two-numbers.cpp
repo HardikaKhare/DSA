@@ -16,9 +16,15 @@ public:
         int carry=0;
         ListNode*dummy=new ListNode(-1);
         ListNode* temp=dummy;
-        while(t1!=0 && t2!=0){
-            
-            int sum=carry+t1->val+t2->val;
+        while(t1!=0 || t2!=0){
+            int sum=0;
+            if(t1==NULL){
+                sum=carry+t2->val;
+            }else if(t2==NULL){
+                sum=carry+t1->val;
+            }else{
+            sum=carry+t1->val+t2->val;
+            }
             if(sum<10){
                 ListNode* newh= new ListNode(sum);
                 temp->next=newh;
@@ -28,38 +34,11 @@ public:
                 temp->next=newh;
                 carry=1;
             }
+            if(t1 !=NULL)
             t1=t1->next;
+            if(t2!=NULL)
             t2=t2->next;
             temp=temp->next;
-        }while (t1 != nullptr) {
-            int sum = carry + t1->val;
-
-            if (sum < 10) {
-                temp->next = new ListNode(sum);
-                carry = 0;
-            } else {
-                temp->next = new ListNode(sum - 10);
-                carry = 1;
-            }
-
-            t1 = t1->next;
-            temp = temp->next;
-        }
-
-        // PART 3: process remaining nodes of l2
-        while (t2 != nullptr) {
-            int sum = carry + t2->val;
-
-            if (sum < 10) {
-                temp->next = new ListNode(sum);
-                carry = 0;
-            } else {
-                temp->next = new ListNode(sum - 10);
-                carry = 1;
-            }
-
-            t2 = t2->next;
-            temp = temp->next;
         }
         if(carry==1){
             ListNode* neww=new ListNode(1);
