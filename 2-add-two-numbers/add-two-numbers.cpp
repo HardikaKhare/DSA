@@ -31,16 +31,12 @@ public:
                 temp->next=new ListNode(sum-10);
                 carry=1;
             }
-            if(t1 !=NULL)
-            t1=t1->next;
-            if(t2!=NULL)
-            t2=t2->next;
+            if(t1 !=NULL)t1=t1->next;
+            if(t2!=NULL)t2=t2->next;
             temp=temp->next;
         }
         if(carry==1){
-            ListNode* neww=new ListNode(1);
-            temp->next=neww;
-
+            temp->next=new ListNode(1);
         }
         return dummy->next;
     }
