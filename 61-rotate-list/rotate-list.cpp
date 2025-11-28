@@ -10,64 +10,25 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* head){
-        ListNode* temp=head;
-        ListNode* prev=nullptr;
-        while(temp!=0){
-        ListNode* front=temp->next;;
-            temp->next=prev;
-            prev=temp;
-            temp=front;
-        }
-        return prev;
-    }
-    int length(ListNode* head){
-        ListNode* temp=head;
-        int l=0;
-        while(temp!=NULL){
-            l++;
-           
-            temp=temp->next;
-        }
-        return l;
-    }
     ListNode* rotateRight(ListNode* head, int k) {
-        if(head == NULL) return head;
-        int l = length(head);
-    k = k % l;
-    if(k == 0) return head;
-
-    int a = l - k;         // pivot
-    ListNode* temp = head; 
-    ListNode* newhead = nullptr;
-
-    // move temp to pivot-1 node
-    ListNode* kth = temp;
-    int steps = a - 1;
-    while(steps > 0){
-        kth = kth->next;
-        steps--;
-    }
-
-    // cut the list into two parts
-    ListNode* nextnode = kth->next;
-    kth->next = nullptr;
-
-    // reverse first part
-    ListNode* revhead1 = reverse(temp);
-
-    // reverse second part
-    ListNode* revhead2 = reverse(nextnode);
-
-    // join revhead1 tail → revhead2
-    ListNode* joiner = revhead1;
-    while(joiner->next != nullptr){
-        joiner = joiner->next;
-    }
-    joiner->next = revhead2;
-
-    // final reverse
-    ListNode* finalhead = reverse(revhead1);
-    return finalhead;
+        if(head == nullptr || head->next == nullptr || k == 0) 
+            return head;
+      int l = 1;
+        ListNode* temp = head;
+        while(temp->next != nullptr){
+            temp = temp->next;
+            l++;
+        }
+      temp->next=head;
+      ListNode* kth=head;
+      k = k % l;
+      int a=l-k;
+      while(a>1){
+        kth=kth->next;
+        a--;
+      }
+      ListNode* newhead=kth->next;
+      kth->next=nullptr;
+      return newhead;
     }
 };
