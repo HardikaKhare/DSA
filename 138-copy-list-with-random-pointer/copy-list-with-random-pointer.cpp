@@ -22,8 +22,7 @@ public:
         Node * dummy=new Node(-1);
         Node * curr=dummy;
         while(temp!=NULL){  
-            Node* newnode=new Node(temp->val);
-            mpp[temp]=newnode;
+            mpp[temp]=new Node(temp->val);
             temp=temp->next;
         }
         temp=head;
