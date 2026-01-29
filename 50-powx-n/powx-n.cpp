@@ -1,19 +1,18 @@
 class Solution {
 public:
-    double myPow(double x, int n) {
-        double ans=1;
-        long a=n;
-        if(n<0)a=-1*a;
-        while(a>0){
-            if(a%2==1){
-                ans=ans*x;
-                a=a-1;
-            }else{
-                x=x*x;
-                a=a/2;
-            }
+    double pow(double x, long n) {
+        if(n==0) return 1;
+        if(n==1) return x;
+        if(n%2==0){
+            return pow(x*x,n/2);
         }
-        if(n<0) ans=1/ans;
-        return ans;
+        return x * pow(x, n-1);
+    }
+    double myPow(double x, int n) {
+        long long num = n;
+        if (num < 0) {
+            return (1/pow(x, -num));
+        }
+        return pow(x, num);
     }
 };
