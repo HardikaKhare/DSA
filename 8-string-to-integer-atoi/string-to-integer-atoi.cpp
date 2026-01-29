@@ -1,26 +1,20 @@
 class Solution {
 public:
-   int helper(string &s, int i, long long num, int sign) {
-    if (i >= s.size() || !isdigit(s[i]))
-        return (int)(sign * num);
-         num = num * 10 + (s[i] - '0');
-
-    // Clamp if overflow
-    if (sign * num <= INT_MIN) return INT_MIN;
-    if (sign * num >= INT_MAX) return INT_MAX;
-
-    // Recurse for next character
-    return helper(s, i + 1, num, sign);
-   }
     int myAtoi(string s) {
-        int i=0;
-        while (i < s.size() && s[i] == ' ') i++;
-        int sign=1;
-        if(s[i]=='-'||s[i]=='+'){
-            if(s[i]=='-') sign=-1;
+        long long ans=0;
+        int i=0,n=s.length(),sign=1;
+        while(s[i]==' ') i++;
+        if (i < n && (s[i] == '+' || s[i] == '-')) {
+            if (s[i] == '-') sign = -1;
             i++;
         }
-return helper(s, i, 0, sign);
-
+        while(s[i]=='0')i++;
+        while(isdigit(s[i])){
+            ans=ans*10+(s[i]-'0');
+            if (ans * sign >= INT_MAX) return INT_MAX;
+            if (ans * sign <= INT_MIN) return INT_MIN;
+            i++;
+        }
+        return ans*sign;
     }
 };
