@@ -5,7 +5,7 @@ void sums(vector<int>& candidates, int target,int sum,int idx,vector<int>& val,v
             ans.push_back(val);
             return;
         }
-        if(idx==candidates.size() || sum>target){
+        if(sum>target){
             return;
         }
         for(int i=idx;i<candidates.size();i++){
