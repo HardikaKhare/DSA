@@ -1,14 +1,13 @@
 class Solution {
 public:
-    void letter(string digits,vector<string>& ans,int idx,string& curr,vector<string>& mpp){
+    void letter(string digits,vector<string>& ans,int idx,string curr,vector<string>& mpp){
         if(idx==digits.size()){
             ans.push_back(curr);
             return;
         }
-        for(int i=0;i<mpp[digits[idx] - '0'].size();i++){
-            curr=curr+mpp[digits[idx]-'0'][i];
-            letter(digits,ans,idx+1,curr,mpp);
-            curr.pop_back();
+        string dig=mpp[digits[idx] - '0'];
+        for(int i=0;i<dig.size();i++){
+            letter(digits,ans,idx+1,curr+dig[i],mpp);
         }
     }
     vector<string> letterCombinations(string digits) {
