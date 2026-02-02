@@ -5,7 +5,7 @@ public:
             ans.push_back(val);
             return;
         }
-        if(sum>n) return;
+        if(sum>n ) return;
         for(int i=idx;i<=9;i++){
             val.push_back(i);
             subset(ans,k,n,val,sum+i,i+1);
