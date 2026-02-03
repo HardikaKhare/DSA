@@ -21,7 +21,6 @@ public:
         }
         return true;
     }
-
     void recursion(int row,int n,vector<vector<string>>& ans,vector<string>& board){
         if(row==n){
             ans.push_back(board);
@@ -39,12 +38,7 @@ public:
 
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> ans;
-        vector<string> board(n);
-        string s(n,'.');
-
-        for(int i=0;i<n;i++){
-            board[i]=s;
-        }
+        vector<string> board(n, string(n, '.'));
         recursion(0,n,ans,board);
         return ans;
     }
