@@ -1,6 +1,6 @@
 class Solution {
 public:
-   void recurse(int idx,long long total,long long mult,vector<string>& ans,string s,string& num,int target) {
+   void recurse(int idx,long long total,long long last,vector<string>& ans,string s,string& num,int target) {
         if(idx == num.size()){
             if(total == target) ans.push_back(s);
             return;
@@ -16,7 +16,7 @@ public:
             else{
                 recurse(i+1, total + curr, curr,ans, s + "+" + part, num, target);
                 recurse(i+1, total - curr, -curr,ans, s + "-" + part, num, target);
-                recurse(i+1,total - mult + mult*curr,mult*curr,ans, s + "*" + part, num, target);
+                recurse(i+1,total - last + last*curr,last*curr,ans, s + "*" + part, num, target);
             }
         }
     }
