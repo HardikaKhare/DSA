@@ -1,20 +1,24 @@
 class Solution {
 public:
+    int recurse(string& s, long long ans,int idx,int& sign){
+        if(idx==s.size()|| !isdigit(s[idx])){
+            return ans*sign;
+        }
+        ans=ans*10+(s[idx]-'0');
+        if(ans*sign<INT_MIN) return INT_MIN;
+        if(ans*sign>INT_MAX) return INT_MAX;
+        return recurse(s,ans,idx+1,sign);
+    }
     int myAtoi(string s) {
-        long long ans=0;
-        int i=0,n=s.length(),sign=1;
-        while(s[i]==' ') i++;
-        if (i < n && (s[i] == '+' || s[i] == '-')) {
-            if (s[i] == '-') sign = -1;
-            i++;
+        int idx=0;
+        while(idx<s.size() && s[idx]==' '){
+             idx++;
         }
-        while(s[i]=='0')i++;
-        while(isdigit(s[i])){
-            ans=ans*10+(s[i]-'0');
-            if (ans * sign >= INT_MAX) return INT_MAX;
-            if (ans * sign <= INT_MIN) return INT_MIN;
-            i++;
+        int sign=1;
+        if(s[idx]=='-' || s[idx]=='+'){
+            if(s[idx]=='-')sign=-1;
+            idx++;
         }
-        return ans*sign;
+        return recurse(s,0,idx,sign);
     }
 };
