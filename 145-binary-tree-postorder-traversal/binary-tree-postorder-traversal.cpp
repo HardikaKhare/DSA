@@ -12,8 +12,8 @@
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
-        stack<TreeNode*>st1;
-        stack<TreeNode*>st2;
+        stack<TreeNode*>st1,st2;
+        
         if (root == nullptr) return {};
         st1.push(root);
         while(!st1.empty()){
