@@ -13,10 +13,9 @@ class Solution {
 public:
     int path(TreeNode* node,int& maxi){
         if(node==NULL)return 0;
-        int lh=path(node->left,maxi);
-        int rh=path(node->right,maxi);
-        lh = max(0, lh);
-    rh = max(0, rh);
+        int lh=max(0,path(node->left,maxi));
+        int rh=max(0,path(node->right,maxi));
+        
         maxi=max(maxi,lh+rh+node->val);
         return node->val + max(lh, rh);
     }
