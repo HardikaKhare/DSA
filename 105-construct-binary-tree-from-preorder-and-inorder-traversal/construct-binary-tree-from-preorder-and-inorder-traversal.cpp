@@ -17,8 +17,7 @@ public:
         int inRoot = mp[root->val];
         int numsLeft = inRoot - inStart;
         root->left = traverse(preorder, preStart + 1, preStart + numsLeft,inorder, inStart, inRoot - 1, mp);
-        root->right = traverse(preorder, preStart + numsLeft + 1, preEnd,
-                            inorder, inRoot + 1, inEnd, mp);
+        root->right = traverse(preorder, preStart + numsLeft + 1, preEnd,inorder, inRoot + 1, inEnd, mp);
 
         return root;
     }
