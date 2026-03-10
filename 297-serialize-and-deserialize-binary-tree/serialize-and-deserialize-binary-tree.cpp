@@ -42,7 +42,6 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         while(!q.empty()){
-            if(data.size() == 0) return NULL;
             TreeNode* node = q.front();
             q.pop();
             string left = "";
