@@ -14,7 +14,7 @@ public:
         long long ans = 0;
         while (n >= d) {
             int cnt = 0;
-            while (n >= (d << (cnt + 1))) {
+            while (n >= d << (cnt + 1)) {
                 cnt++;
             }
             ans += 1LL << cnt;
