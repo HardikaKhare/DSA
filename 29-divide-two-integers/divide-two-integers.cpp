@@ -7,8 +7,8 @@ public:
         int sign=1;
         if(dividend<0 && divisor>0)sign=-1;
         if(dividend>0 && divisor<0)sign=-1;
-        long long n = llabs((long long)dividend);
-long long d = llabs((long long)divisor);
+        long long n=llabs(dividend);
+        long long d=llabs(divisor);
         long long ans=0;
         while(n>=d){
             int cnt=0;
