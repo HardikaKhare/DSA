@@ -2,11 +2,10 @@ class Solution {
 public:
     int countPrimes(int n) {
         int cnt=0;
-        vector<int>hash(n+1,1);
-        
-        for(int i = 2; i*i<= n; i++) {
+        vector<int>hash(n,1);
+        for(int i = 2; i*i< n; i++) {
             if(hash[i]==1){
-                for(int j=i*i;j<=n;j+=i){
+                for(int j=i*i;j<n;j+=i){
                     hash[j]=0;
                 }
             }
