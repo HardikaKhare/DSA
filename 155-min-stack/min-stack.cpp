@@ -8,7 +8,6 @@ vector<int>mini;
     
     void push(int val) {
         st.push_back(val);
-        int minim=INT_MAX;
         if (mini.empty()) {
             mini.push_back(val);
         } else {
