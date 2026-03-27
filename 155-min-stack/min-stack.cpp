@@ -22,13 +22,11 @@ vector<int>mini;
     }
     
     int top() {
-        int s=st.size()-1;
-        return st[s];
+        return st.back();
     }
     
     int getMin() {
-        int s=st.size()-1;
-        return mini[s];
+        return mini.back();
     }
 };
 
