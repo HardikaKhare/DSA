@@ -9,10 +9,11 @@ vector<int>mini;
     void push(int val) {
         st.push_back(val);
         int minim=INT_MAX;
-        for(int i=0;i<st.size();i++){
-            minim=min(minim,st[i]);
+        if (mini.empty()) {
+            mini.push_back(val);
+        } else {
+            mini.push_back(min(mini.back(), val));
         }
-        mini.push_back(minim);
     }
     
     void pop() {
