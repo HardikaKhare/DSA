@@ -8,13 +8,13 @@ public:
             }
             else{
                 if(!st.empty()){
-                    if(st.top()=='(' && s[i]==')' || 
-                    st.top()=='{' && s[i]=='}'||
-                    st.top()=='[' && s[i]==']'){
-                        st.pop();
+                    if(st.top()=='(' && s[i]!=')' || 
+                    st.top()=='{' && s[i]!='}'||
+                    st.top()=='[' && s[i]!=']'){
+                        return false;
                     }
                     else{
-                        break;
+                    st.pop();
                     }
                 }
                 else{
