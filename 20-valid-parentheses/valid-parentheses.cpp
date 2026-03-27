@@ -14,7 +14,7 @@ public:
                         return false;
                     }
                     else{
-                    st.pop();
+                        st.pop();
                     }
                 }
                 else{
@@ -22,7 +22,6 @@ public:
                 }
             }
         }
-        if(st.size()==0)return true;
-        return false;
+        return st.empty();
     }
 };
